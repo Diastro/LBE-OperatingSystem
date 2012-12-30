@@ -8,11 +8,11 @@ WORK IN PROGRESS.
 ##Execution
 To run any code example in a Linux environement (I use ubuntu) do the following :
 
-1) Compile any .cpp file *(example 01fork.cpp)* :
+1) Compile any .cpp file *(ex: 01fork.cpp)* :
 
     gcc 01fork.cpp -o executableName    
   
-2) Execute the output file :
+2) Execute the corresponding output file :
 
     ./executableName
     
