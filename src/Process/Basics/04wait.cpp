@@ -1,13 +1,12 @@
 /**
  * File             : 04wait.cpp
- * Date of creation : December 29 2012
+ * Date of creation : December 30 2012
  * Author           : David Albertson
  * Twitter          : @DavidAlbertson
  * Website          : www.dalbertson.com
  *
  * Description : 
- * Waiting for a SPECIFIC child process to finish (exit) in a non-blocking manner before continuing the execution of the parent process.
- * This allows the parent process to keep working on other tasks while waiting for the child process to terminate.
+ * Waiting for ALL child process to finish (exit) before continuing the execution of the parent process.
  *
  * References :
  * - http://www.die.net
@@ -34,7 +33,7 @@ int main(int argc, char *arg[])
     int const CHILD_COUNT = 2; // Set a fix number of child process to create
     pid_t childPID;
     
-    for(int i=0; i<2; i++){
+    for(int i=0; i<2; i++){ // Loops twice to create 2 child process
         childPID = fork();
 
         if(childPID >= 0)
