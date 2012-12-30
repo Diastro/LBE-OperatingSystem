@@ -6,7 +6,8 @@
  * Website          : www.dalbertson.com
  *
  * Description : 
- * Waiting for a SPECIFIC child process to finish (exit) before continuing the execution of the parent process.
+ * Waiting for a SPECIFIC child process to finish (exit) before continuing the execution of the
+ * parent process.
  *
  * References :
  * - http://www.die.net
@@ -38,11 +39,11 @@ int main(int argc, char *arg[])
             int status;
             int waitValue = waitpid(childPID, &status, WCONTINUED); // This call will block until the child process reaches a terminated state (or until the child process returns with errors)
            
-            if(waitValue == childPID) // child process terminated
+            if(waitValue == childPID) // Child process terminated
             {
                 printf("Child process terminated .\n");
             }
-            else // something wrong happened while obtaining the status
+            else // Something wrong happened while obtaining the status of the child process
             {
                 printf("Waitpid error : %i .\n", errno);
             }
