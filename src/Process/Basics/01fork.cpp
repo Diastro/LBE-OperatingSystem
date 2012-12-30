@@ -1,27 +1,28 @@
 /**
- * File 			: 01fork.cpp
+ * File             : 01fork.cpp
  * Date of creation : December 29 2012
- * Author 			: David Albertson
- * Twitter 			: @DavidAlbertson
- * Website			: www.dalbertson.com
+ * Author           : David Albertson
+ * Twitter          : @DavidAlbertson
+ * Website          : www.dalbertson.com
  *
  * Description : 
  * Creation of a child process and understanding how the chilPID value changes depending on which process we're in.
  *
  * References :
- * - www.die.net
- * - http://publib.boulder.ibm.com/infocenter/zos/v1r11/index.jsp?topic=/com.ibm.zos.r11.bpxbd00/rtgtpp.htm
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/fork
+ * - http://linux.die.net/man/3/errno
  */
 
-#include <unistd.h>		// for : fork()
-#include <sys/types.h>	// for : pid_t
-#include <stdio.h>		// for : perror, printf
-#include <errno.h>		// for : errno
+#include <unistd.h>     // for : fork()
+#include <sys/types.h>  // for : pid_t
+#include <stdio.h>      // for : perror, printf
+#include <errno.h>      // for : errno
 
 int main(int argc, char *arg[])
 {
-    pid_t childPID;		// Used to store the processID of the child after the fork() call
-    childPID = fork();	// Creation of a new process (a child process)
+    pid_t childPID;     // Used to store the processID of the child after the fork() call
+    childPID = fork();  // Creation of a new process (a child process)
 
     // At this point, when the fork() call returns, a new (identical) process will be created.
     // If we are in the newly created process (the childProcess), the childPID variable will be 0.
@@ -40,7 +41,7 @@ int main(int argc, char *arg[])
     }
     else if(childPID <0) // The fork call failed
     {
-        printf("\n Fork failed exiting...\n");
+        printf("\n Fork failed with error code : %i .\n", errno);
         return 1;
     }
 
