@@ -7,6 +7,7 @@
  *
  * Description : 
  * Waiting for a SPECIFIC child process to finish (exit) in a non-blocking manner before continuing the execution of the parent process.
+ * This allows the parent process to keep working on other tasks while waiting for the child process to terminate.
  *
  * References :
  * - http://www.die.net
@@ -45,7 +46,7 @@ int main(int argc, char *arg[])
                     printf("Child process terminated : %i .\n", waitValue);
                     break;
                 }
-                else if (waitValue ==  -1)
+                else if (waitValue ==  -1) // Error while retrieving the status of the child process
                 {
                     printf("Waitpid error : %i .\n", errno);
                     break;
@@ -53,7 +54,7 @@ int main(int argc, char *arg[])
                 else if (waitValue ==  0) // Child not terminated yet
                 {
                     printf("Parent process is doing work while waiting .\n");
-                    sleep(1); // Simulated workwork 
+                    sleep(1); // Simulated workwork for the parent process
                 }
 
             }
