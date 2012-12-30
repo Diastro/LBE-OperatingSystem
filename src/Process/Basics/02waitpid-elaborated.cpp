@@ -12,6 +12,14 @@
  * References :
  * - http://www.die.net
  * - http://linux.die.net/man/3/wait
+ *
+ * Output :
+ * -----------------------------------
+ * Parent Process ID : <PID-Parent> .
+ * Child Process ID : <PID-Child> .
+ * Child process terminated .
+ * Child process terminated with value 2 .
+ * -----------------------------------
  */
 
 #include <unistd.h> 

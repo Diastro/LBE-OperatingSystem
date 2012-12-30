@@ -12,6 +12,17 @@
  * References :
  * - http://www.die.net
  * - http://linux.die.net/man/3/wait
+ *
+ * Output : (output order may differ due to scheduling)
+ * -----------------------------------
+ * Parent Process ID : <PID-Parent> .
+ * Child Process ID : <PID-Child>  .
+ * Parent process is doing work while waiting .
+ * Parent process is doing work while waiting .
+ * Parent process is doing work while waiting .
+ * Child process terminated : <PID-Child>  .
+ * Child process terminated, parent process may now terminate .
+ * -----------------------------------
  */
 
 #include <unistd.h> 

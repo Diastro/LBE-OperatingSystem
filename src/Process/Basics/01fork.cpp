@@ -13,6 +13,15 @@
  * - http://www.die.net
  * - http://linux.die.net/man/3/fork
  * - http://linux.die.net/man/3/errno
+ *
+ * Output :
+ * -----------------------------------
+ * Parent Process ID : <PID-Parent> .
+ * Child Process ID : <PID-Child> .
+ * Child Parent Process ID : <PID-Parent> .
+ * Printed by both process : <PID-Parent> .
+ * Printed by both process : <PID-Child> .
+ * -----------------------------------
  */
 
 #include <unistd.h>     // for : fork()
