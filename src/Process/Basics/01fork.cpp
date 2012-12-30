@@ -6,7 +6,8 @@
  * Website          : www.dalbertson.com
  *
  * Description : 
- * Creation of a child process and understanding how the chilPID value changes depending on which process we're in.
+ * Creation of a child process and understanding how the chilPID value changes depending on which 
+ * process we're in.
  *
  * References :
  * - http://www.die.net
@@ -21,8 +22,8 @@
 
 int main(int argc, char *arg[])
 {
-    pid_t childPID;     // Used to store the processID of the child after the fork() call
-    childPID = fork();  // Creation of a new process (a child process)
+    pid_t childPID;     // Used to store the processID of the child process after the fork() call
+    childPID = fork();  // Creation of a new process (commonly called child process)
 
     // At this point, when the fork() call returns, a new (identical) process will be created.
     // If we are in the newly created process (the childProcess), the childPID variable will be 0.
