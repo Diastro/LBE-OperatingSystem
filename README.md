@@ -18,4 +18,4 @@ To run any code example in a Linux environement (I use ubuntu) do the following 
     
 ##References
 - [Die.net - Linux Doc](http://www.die.net)
-- [A short introduction to operating systems](http://www.iu.hio.no/~mark/os/os.html)
+- [A short introduction to operating systems, by Mark Burgess](http://www.iu.hio.no/~mark/os/os.html)
