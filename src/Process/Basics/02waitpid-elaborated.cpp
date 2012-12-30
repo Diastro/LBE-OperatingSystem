@@ -66,7 +66,7 @@ int main(int argc, char *arg[])
     }
     else if(childPID <0)
     {
-        printf("\n Fork failed with error code : %i .\n", errno);
+        printf("Fork failed with error code : %i .\n", errno);
         return 1;
     }
 
