@@ -7,6 +7,8 @@ WORK IN PROGRESS.
 ##Execution
 To run any code example in a Linux environement (I use ubuntu) do the following :
 
-1)      gcc 01fork.cpp -o executableName    
+Compile the .cpp (example 01fork.cpp) :
+    gcc 01fork.cpp -o executableName    
   
+Execute the output file :
     ./executableName
