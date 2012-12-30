@@ -7,6 +7,7 @@
  *
  * Description : 
  * Waiting for a SPECIFIC child process to finish (exit) before continuing the execution of the parent process.
+ * In this version of the code, we retrive the status value of the child process after it terminates (or the terminating signal)
  *
  * References :
  * - http://www.die.net
@@ -31,7 +32,7 @@ int main(int argc, char *arg[])
             printf("Child Process ID : %i .\n", getpid());
             sleep(2);
             
-            return 2; // Makes the child process terminates with a specific value
+            return 2; // Makes the child process terminates returning a specific value
         }
         else
         {
