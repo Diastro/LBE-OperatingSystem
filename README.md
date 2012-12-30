@@ -17,6 +17,5 @@ To run any code example in a Linux environement (I use ubuntu) do the following 
     ./executableName
     
 ##References
-[Die.net - Linux Doc](http://www.die.net)
-
-[A short introduction to operating systems](http://www.iu.hio.no/~mark/os/os.html)
+- [Die.net - Linux Doc](http://www.die.net)
+- [A short introduction to operating systems](http://www.iu.hio.no/~mark/os/os.html)
