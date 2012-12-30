@@ -31,12 +31,12 @@ int main(int argc, char *arg[])
     {
         if(childPID == 0) // Code executed in the child process
         {
-           printf("Child Process ID : %i .\n", getpid());
-           printf("Child Parent Process ID : %i .\n", getppid());
+            printf("Child Process ID : %i .\n", getpid());
+            printf("Child Parent Process ID : %i .\n", getppid());
         }
         else // Code executed in the parent process
         {
-           printf("Parent Process ID :%i .\n", getpid());
+            printf("Parent Process ID : %i .\n", getpid());
         }
     }
     else if(childPID <0) // The fork call failed
