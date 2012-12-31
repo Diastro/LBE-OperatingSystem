@@ -9,11 +9,6 @@
  * Creation of a child process and understanding how the chilPID value changes depending on which 
  * process we're in.
  *
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/fork
- * - http://linux.die.net/man/3/errno
- *
  * Output :
  * -----------------------------------
  * Parent Process ID : <PID-Parent> .
@@ -22,6 +17,12 @@
  * Printed by both process : <PID-Parent> .
  * Printed by both process : <PID-Child> .
  * -----------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/fork
+ * - http://linux.die.net/man/3/errno
+ *
  */
 
 #include <unistd.h>     // for : fork()

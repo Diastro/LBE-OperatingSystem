@@ -9,10 +9,6 @@
  * Waiting for a SPECIFIC child process to finish (exit) before continuing the execution of the parent process.
  * In this version of the code, we retrive the status value of the child process after it terminates (or the terminating signal)
  *
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/wait
- *
  * Output :
  * -----------------------------------
  * Parent Process ID : <PID-Parent> .
@@ -20,6 +16,11 @@
  * Child process terminated .
  * Child process terminated with value 2 .
  * -----------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/wait
+ *
  */
 
 #include <unistd.h> 

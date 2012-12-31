@@ -9,10 +9,6 @@
  * Waiting for a SPECIFIC child process to finish (exit) in a non-blocking manner before continuing the execution of the parent process.
  * This allows the parent process to keep working on other tasks while waiting for the child process to terminate.
  *
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/wait
- *
  * Output : (output order may differ due to scheduling)
  * -----------------------------------
  * Parent Process ID : <PID-Parent> .
@@ -23,6 +19,11 @@
  * Child process terminated : <PID-Child>  .
  * Child process terminated, parent process may now terminate .
  * -----------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/wait
+ *
  */
 
 #include <unistd.h> 

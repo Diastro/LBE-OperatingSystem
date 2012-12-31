@@ -9,16 +9,17 @@
  * Waiting for a SPECIFIC child process to finish (exit) before continuing the execution of the
  * parent process.
  *
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/wait
- *
  * Output :
  * -----------------------------------
  * Parent Process ID : <PID-Parent> .
  * Child Process ID : <PID-Child> .
  * Child process terminated .
  * -----------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/wait
+ *
  */
 
 #include <unistd.h> 

@@ -8,10 +8,6 @@
  * Description : 
  * Waiting for ALL child process to finish (exit) before continuing the execution of the parent process.
  *
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/wait
- *
  * Output :
  * -----------------------------------
  * Child #0 created .
@@ -20,6 +16,11 @@
  * Child #1 work's is done .
  * Job complete, exiting .
  * -----------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/wait
+ *
  */
 
 #include <unistd.h> 
