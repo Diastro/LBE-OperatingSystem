@@ -10,11 +10,11 @@ To run any code example in a Linux environement (I use ubuntu) do the following 
 
 1) Compile any .cpp file :
 
-    gcc 01fork.cpp -o executableName    
+    gcc 01fork.cpp -o output
   
 2) Execute the corresponding output file :
 
-    ./executableName
+    ./output
     
 ##References
 - [Die.net - Linux Doc](http://www.die.net)
