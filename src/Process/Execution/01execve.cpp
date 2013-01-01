@@ -54,10 +54,6 @@ int main(int argc, char *arg[])
 
             int execution = execve("/bin/ls", args, env); // int execve(const char *filename, char *const argv[], char *const envp[])
             
-            // *************************************
-            // Anything placed after the exec() call won't be executed (if the exec() call is sucessful) since the new program that's been loaded overwrites the existing one
-            // *************************************
-            
             if( execution < 0) // If the execution is a sucess, the exec() call won't return; If error, it will return -1
             {
                 printf("Execution failed with error : %i .\n", errno);
