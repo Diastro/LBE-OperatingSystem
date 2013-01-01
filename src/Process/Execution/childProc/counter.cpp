@@ -43,7 +43,8 @@ int main(int argc, char *arg[])
     // int argc     : holds the number of argument present. By default the first argument (arg[0]) is the name of the file
     // char *arg[]  : holds arguments
     
-    if(argc < 3){ // Check to make sure the user put argument before executing the script
+    if(argc < 3)  // Check to make sure the user put argument before executing the script
+    {
         printf("Missing argument, exiting .\n");
         return 1;
     }
