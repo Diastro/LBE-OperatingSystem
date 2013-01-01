@@ -12,9 +12,6 @@
  * 
  *     gcc timer.cpp -o timer
  *
- * To execute the ouput file in a console use :
- *     ./timer <arg-1>
- *
  * Execution :  
  * To execute the ouput file in a console use :
  *     ./timer <arg-1>
