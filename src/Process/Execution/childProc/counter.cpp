@@ -17,9 +17,8 @@
  *     ./counter <arg-1> <arg-2>
  * 
  *     - Where <arg-1> is the name of the object you're counting.
- *     - Where <arg-2> is last number to count to.
- * 
- * ex : ./counter cars 3
+ *     - Where <arg-2> is last number to count to. * 
+ *     ex : ./counter cars 3
  *
  * Output :
  * -----------------------------------

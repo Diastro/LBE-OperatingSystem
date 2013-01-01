@@ -10,10 +10,6 @@
  * by a new one.
  * execlp() will lookup the executable file in the PATH environment variable set for your user. If the
  * file isn't found in any of the PATH env folders, the default folder to look into will be the current folder.
- * 
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/execlp
  *
  * Output :
  * --------------------------------------
@@ -27,6 +23,11 @@
  * -rw-r--r-- 1 <user> <user> 1621 Jan  1 17:03 03execvp.cpp
  * drwxr-xr-x 2 <user> <user> 4096 Jan  1 16:59 childProc 
  * --------------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/execlp
+ *
  */
 
 #include <unistd.h>

@@ -10,10 +10,6 @@
  * by a new one.
  * execvp() is the same as execlp() but allows you to pass your argument as a pointer to an array of char (const char *arg[])
  * instead of a simple char pointer (const char *arg)
- *  
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/3/execvp
  *
  * Output :
  * --------------------------------------
@@ -27,6 +23,11 @@
  * -rw-r--r-- 1 <user> <user> 1621 Jan  1 17:03 03execvp.cpp
  * drwxr-xr-x 2 <user> <user> 4096 Jan  1 16:59 childProc 
  * --------------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/3/execvp
+ *
  */
 
 #include <unistd.h>

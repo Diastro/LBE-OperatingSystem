@@ -16,8 +16,8 @@
  * To execute the ouput file in a console use :
  *     ./timer <arg-1>
  * 
- * Where <arg-1> is time (in second) to count up to.
- * ex : ./timer 3
+ *     - Where <arg-1> is time (in second) to count up to.
+ *     ex : ./timer 3
  *
  * Output :
  * -----------------------------------

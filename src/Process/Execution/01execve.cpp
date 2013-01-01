@@ -10,10 +10,6 @@
  * by a new one.
  * execve() requires you to specify the file path and environment variable (PATH)
  *
- * References :
- * - http://www.die.net
- * - http://linux.die.net/man/2/execve
- *
  * Output :
  * --------------------------------------
  * Parent Process ID : <PID-Parent> .
@@ -26,6 +22,11 @@
  * -rw-r--r-- 1 <user> <user> 1621 Jan  1 17:03 03execvp.cpp
  * drwxr-xr-x 2 <user> <user> 4096 Jan  1 16:59 childProc 
  * --------------------------------------
+ * 
+ * References :
+ * - http://www.die.net
+ * - http://linux.die.net/man/2/execve
+ *
  */
 
 #include <unistd.h>
