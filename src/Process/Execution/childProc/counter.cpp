@@ -12,21 +12,20 @@
  * 
  *     gcc counter.cpp -o counter
  *
- * To execute the ouput file in a console use :
- *     ./counter <arg-1>
- *
  * Execution :  
  * To execute the ouput file in a console use :
- *     ./counter <arg-1>
+ *     ./counter <arg-1> <arg-2>
  * 
- * Where <arg-1> is last number to count to.
- * ex : ./counter 5
+ *     - Where <arg-1> is the name of the object you're counting.
+ *     - Where <arg-2> is last number to count to.
+ * 
+ * ex : ./counter cars 3
  *
  * Output :
  * -----------------------------------
- * ChildProc is counting: 1 .
- * ChildProc is counting: 2 .
- * ChildProc is counting: 3 .
+ * Counting : 1 cars .
+ * Counting : 2 cars .
+ * Counting : 3 cars .
  * -----------------------------------
  * 
  * References :
@@ -45,16 +44,17 @@ int main(int argc, char *arg[])
     // int argc     : holds the number of argument present. By default the first argument (arg[0]) is the name of the file
     // char *arg[]  : holds arguments
     
-    if(argc < 2){ // Check to make sure the user put argument before executing the script
+    if(argc < 3){ // Check to make sure the user put argument before executing the script
         printf("Missing argument, exiting .\n");
         return 1;
     }
 
     int count = 1;
-    int maxCount = atoi(arg[1]); // Converts the string argument into an integer
+    char *objectName = arg[1];
+    int maxCount = atoi(arg[2]); // Converts the string argument into an integer
 
     while(count <= maxCount){ // ChildProc is doing work
-        printf("ChildProc is counting: %i .\n", count);
+        printf("Counting : %i %s .\n", count, objectName);
         count++;
     }
 
