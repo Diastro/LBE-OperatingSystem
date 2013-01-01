@@ -31,12 +31,7 @@
  * 
  * References :
  * - http://www.die.net
- * - http://linux.die.net/man/3/execl
  *
- * Output :
- * -----------------------------------
-
- * -----------------------------------
  */
 
 #include <unistd.h>
