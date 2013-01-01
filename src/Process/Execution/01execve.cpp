@@ -8,6 +8,7 @@
  * Description : 
  * The exec() call family replaces the child process (which is identical to the parents process when forked)
  * by a new one.
+ * execve() requires you to specify the file path and environment variable (PATH)
  *
  * References :
  * - http://www.die.net
@@ -19,7 +20,7 @@
  * Child Process ID : <PID-Child> .
  * ----------------- .
  * 
- * total 32
+ * total xx
  * -rw-r--r-- 1 <user> <user> 2276 Jan  1 17:36 01execve.cpp
  * -rw-r--r-- 1 <user> <user> 1621 Dec 31 15:50 02execlp.cpp
  * -rw-r--r-- 1 <user> <user> 1621 Jan  1 17:03 03execvp.cpp
@@ -31,7 +32,6 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <errno.h>
-#include <stdlib.h>     // for : atoi
 
 int main(int argc, char *arg[])
 {
@@ -55,12 +55,12 @@ int main(int argc, char *arg[])
             int execution = execve("/bin/ls", args, env); // int execve(const char *filename, char *const argv[], char *const envp[])
             
             // *************************************
-            // Anything placed after the exec() call wont be executed (if the exec() call is sucessful) since the new program that's been loaded overwrites the existing one
+            // Anything placed after the exec() call won't be executed (if the exec() call is sucessful) since the new program that's been loaded overwrites the existing one
             // *************************************
             
             if( execution < 0) // If the execution is a sucess, the exec() call won't return; If error, it will return -1
             {
-                printf("Execution failed %i .\n", errno);
+                printf("Execution failed with error : %i .\n", errno);
             }
         }
         else // Code executed in the parent process
