@@ -1,5 +1,5 @@
 /**
- * File             : 02pipe-interProx.cpp
+ * File             : 02pipe-interProc-basic.cpp
  * Date of creation : January 2 2013
  * Author           : David Albertson
  * Twitter          : @DavidAlbertson
@@ -11,11 +11,11 @@
  *
  * ParentProc:
  *                          open                               close                                             
- *              write() --> fd[1] -- |======= PIPE =======| -- fd[0] --> read() 
+ *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
  * ChildProc:
  *                          close                              open                                             
- *              write() --> fd[1] -- |======= PIPE =======| -- fd[0] --> read() 
+ *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
  * Output :
  * -----------------------------------
@@ -46,7 +46,7 @@ int main(int argc, char *arg[])
 {
 
     int fd[2];  // Array holding the 2 file descriptor used to access the pipe
-    char buffer[100]; // Buffer that will hold the message read from the pipre
+    char buffer[100]; // Buffer that will hold the message read from the pipe
     const char *message = "This is a message!";
     int msgPipe = pipe(fd); // Creation of the pipe ( !! IMPORTANT : pipe() needs to be called before fork() !! )
 

@@ -50,11 +50,11 @@ int main(int argc, char *arg[])
     close(fd[1]); // Closing the writing file descriptor
     
     // Receiving through FD[0]
-    printf("Reading to file descriptor %i .\n", fd[0]);
+    printf("Child process is reading from file descriptor %i .\n", fd[0]);
     read(fd[0], buffer, sizeof(buffer));
 
     // Printing the message
-    printf("Message from FD[] : \"%s\" .\n", buffer);
+    printf("Child process received message : \"%s\" .\n", buffer);
 
     close(fd[0]); // Closing the reading file descriptor  
 
