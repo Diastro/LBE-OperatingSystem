@@ -1,21 +1,24 @@
 /**
- * File             : 01pipe.cpp
+ * File             : reader.cpp
  * Date of creation : January 1 2013
  * Author           : David Albertson
  * Twitter          : @DavidAlbertson
  * Website          : www.dalbertson.com
  *
  * Description : 
- * Introduction to unnamed pipe. 
+ * This file will be use as a chil process for the IPC section of the process examples.
+ * The containning folder already holds the executable for this file. If you wish to rebuild
+ * it, use the command :
+ * 
+ *     gcc reader.cpp -o reader
  *
- *      write() --> fd[1] -- |======= PIPE =======| -- fd[0] --> read() 
- *
- * Output :
- * -----------------------------------
- * Writing to file descriptor 4 .
- * Reading to file descriptor 3 .
- * Message from FD[] : "This is a message!" .
- * -----------------------------------
+ * Execution :  
+ * To execute the ouput file in a console use :
+ *     ./reader <arg-1> <arg-2>
+ * 
+ *     - Where <arg-1> is file descriptor from which we will read.   -  fd[0]
+ *     - Where <arg-2> is file descriptor from which we could write. -  fd[1]
+ *     ex : ./reader fd[0] fd[1]
  * 
  * References :
  * - http://www.die.net
@@ -31,7 +34,7 @@
 #include <stdio.h>      // for : perror, printf
 #include <errno.h>      // for : errno
 #include <string.h>     // for : strlen
-#include <stdlib.h>    // for : atoi
+#include <stdlib.h>     // for : atoi
 
 int main(int argc, char *arg[])
 {
