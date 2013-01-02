@@ -65,10 +65,24 @@ int main(int argc, char *arg[])
         {
             printf("Child Process ID : %i .\n", getpid());
 
-            close(fd[1]); // Close the unused FD (see description at the top)
-            int byteRead = read( fd[0], buffer, sizeof(buffer));
-            printf("Child Process receiving message from parent : \"%s\" .\n", buffer);
+            char *args[4] = {NULL};
+            char fileDesc0[10];
+            char fileDesc1[10];
 
+            int n = sprintf(fileDesc0,"%i",fd[0]);
+            int m = sprintf(fileDesc1,"%i",fd[1]);
+
+            args[0] = "childProc/reader";
+            args[1] = fileDesc0;
+            args[2] = fileDesc1;
+            args[3] = NULL;
+
+            int execution = execvp("childProc/reader", args);
+            
+            if( execution < 0)
+            {
+                printf("Execution failed with error : %i .\n", errno);
+            }
             return 0;
         }
         else // Code executed in the parent process
@@ -78,6 +92,7 @@ int main(int argc, char *arg[])
 
             close(fd[0]); // Close the unused FD (see description at the top)
             write(fd[1], message, strlen(message)+1); // the "+1" is to insert a NULL caracter otherwise this is not a CSTRING
+            close(fd[1]);
         }
     }
     else if(childPID <0)

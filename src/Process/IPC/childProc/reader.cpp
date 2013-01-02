@@ -31,35 +31,32 @@
 #include <stdio.h>      // for : perror, printf
 #include <errno.h>      // for : errno
 #include <string.h>     // for : strlen
+#include <stdlib.h>    // for : atoi
 
 int main(int argc, char *arg[])
 {
-    int fd[2];  // Array holding the 2 file descriptor used to access the pipe
-    char buffer[100]; // Buffer that will hold the message read from the pipre
-    const char *message = "This is a message!";
-
-    int msgPipe = pipe(fd); // Creation of the pipe
-
-    if ( msgPipe < 0) // Return value -1 : error
+    if(argc < 3) // Check to make sure the user put argument before executing the script
     {
-        printf("Creation of the pipe failed with error : %i .\n", errno);
+        printf("Missing argument... \n");
+        printf("Exiting .\n");
         return 1;
     }
-    else{
-        // Sending through FD[1]
-        printf("Writing to file descriptor %i .\n", fd[1]);
-        write(fd[1], message, strlen(message)+1); // the "+1" is to insert a NULL caracter otherwise this is not a CSTRING
 
-        // Receiving through FD[0]
-        printf("Reading to file descriptor %i .\n", fd[0]);
-        read(fd[0], buffer, sizeof(buffer));
+    char buffer[300];
+    int fd[2];
+    fd[0] = atoi(arg[1]);
+    fd[1] = atoi(arg[2]);
 
-        // Printing the message
-        printf("Message from FD[] : \"%s\" .\n", buffer);
+    close(fd[1]); // Closing the writing file descriptor
+    
+    // Receiving through FD[0]
+    printf("Reading to file descriptor %i .\n", fd[0]);
+    read(fd[0], buffer, sizeof(buffer));
 
-        close(fd[0]); // Closing the reading file descriptor
-        close(fd[1]); // Closing the writing file descriptor
-    }
+    // Printing the message
+    printf("Message from FD[] : \"%s\" .\n", buffer);
+
+    close(fd[0]); // Closing the reading file descriptor  
 
     return 0;
 }
