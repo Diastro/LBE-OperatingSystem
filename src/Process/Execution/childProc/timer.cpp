@@ -6,8 +6,8 @@
  * Website          : www.dalbertson.com
  *
  * Description : 
- * This file will be use as a chil process for the EXECUTION section of the process example.
- * The containning folder already holds the executable for this file. If you wish to rebuild
+ * This file will be use as a child process for the EXECUTION section.
+ * The containing folder already holds the executable for this file. If you wish to rebuild
  * it, use the command :
  * 
  *     gcc timer.cpp -o timer
@@ -16,14 +16,14 @@
  * To execute the ouput file in a console use :
  *     ./timer <arg-1>
  * 
- *     - Where <arg-1> is time (in second) to count up to.
+ *     - Where <arg-1> is the time (in second) to count up to.
  *     ex : ./timer 3
  *
  * Output :
  * -----------------------------------
- * ChildProc timer countdown: 1 second(s).
- * ChildProc timer countdown: 2 second(s).
- * ChildProc timer countdown: 3 second(s).
+ * Timer count: 1 second(s).
+ * Timer count: 2 second(s).
+ * Timer count: 3 second(s).
  * -----------------------------------
  * 
  * References :
@@ -39,8 +39,6 @@
 
 int main(int argc, char *arg[])
 {
-    // int argc     : holds the number of argument present. By default the first argument (arg[0]) is the name of the file
-    // char *arg[]  : holds arguments
     
     if(argc < 2) // Check to make sure the user put argument before executing the script
     {
@@ -49,9 +47,9 @@ int main(int argc, char *arg[])
     }
 
     int count = 1;
-    int maxCount = atoi(arg[1]); // Converts the string argument into an integer
+    int maxCount = atoi(arg[1]); // Converts the string arg[2] into an integer
 
-    while(count <= maxCount){ // ChildProc is doing work
+    while(count <= maxCount){ // Timer is doing work
         printf("Timer count: %i second(s).\n", count);
         sleep(1);
         count++;
