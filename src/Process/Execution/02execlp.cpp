@@ -45,7 +45,7 @@ int main(int argc, char *arg[])
         if(childPID == 0) // Code executed in the child process
         {
             printf("Child Process ID : %i .\n", getpid());
-            printf("----------------- .\n\n"); // Output formatting
+            printf("----------------- \n\n"); // Output formatting
 
             char *args[2] = {NULL};
 

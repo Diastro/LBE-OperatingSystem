@@ -19,6 +19,14 @@
  *
  * Output :
  * --------------------------------------
+ * Parent Process ID : <PID-Parent> .
+ * Child Process ID : <PID-Child> .
+ * ----------------- .
+ * 
+ * Timer count: 1 second(s).
+ * Timer count: 2 second(s).
+ * Timer count: 3 second(s).
+ * Timer terminated, parent may now terminate .
  * --------------------------------------
  * 
  * References :
@@ -31,14 +39,14 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <errno.h>
-#include <stdlib.h>     // for : atoi
- #include <sys/wait.h>   // for : wait()
+#include <sys/wait.h>   // for : wait()
 
 int main(int argc, char *arg[])
 {
     if(argc < 2) // Check to make sure the user put argument before executing the script
     {
-        printf("Missing argument, exiting .\n");
+        printf("Missing argument, try : ./<name-of-file> 3 \n");
+        printf("Exiting .\n");
         return 1;
     }
 
@@ -52,7 +60,7 @@ int main(int argc, char *arg[])
         if(childPID == 0) // Code executed in the child process
         {
             printf("Child Process ID : %i .\n", getpid());
-            printf("----------------- .\n\n"); // Output formatting
+            printf("-----------------\n\n"); // Output formatting
 
             char *args[4] = {NULL};
 
@@ -79,7 +87,7 @@ int main(int argc, char *arg[])
     }
 
     int status;
-    wait(&status); // Wait for any child process to terminate
+    wait(&status); // Wait for child process to terminate
     printf("Timer terminated, parent may now terminate .\n");
 
     return 0;

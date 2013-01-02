@@ -40,13 +40,13 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <errno.h>
-#include <stdlib.h>     // for : atoi
 
 int main(int argc, char *arg[])
 {
     if(argc < 3) // Check to make sure the user put argument before executing the script
     {
-        printf("Missing argument, exiting .\n");
+        printf("Missing argument, try : ./<name-of-file> car 3 \n");
+        printf("Exiting .\n");
         return 1;
     }
 
@@ -61,7 +61,7 @@ int main(int argc, char *arg[])
         if(childPID == 0) // Code executed in the child process
         {
             printf("Child Process ID : %i .\n", getpid());
-            printf("----------------- .\n\n"); // Output formatting
+            printf("----------------- \n\n"); // Output formatting
 
             char *args[4] = {NULL};
 
