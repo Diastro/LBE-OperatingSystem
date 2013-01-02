@@ -47,8 +47,8 @@ int main(int argc, char *arg[])
 
     char buffer[300];
     int fd[2];
-    fd[0] = atoi(arg[1]);
-    fd[1] = atoi(arg[2]);
+    fd[0] = atoi(arg[1]); // Converts the string containing the file descriptor (int)
+    fd[1] = atoi(arg[2]); // Converts the string containing the file descriptor (int)
 
     close(fd[1]); // Closing the writing file descriptor
     
