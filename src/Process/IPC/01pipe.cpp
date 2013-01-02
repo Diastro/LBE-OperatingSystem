@@ -12,8 +12,8 @@
  *
  * Output :
  * -----------------------------------
- * Writing to file descriptor 4 .
- * Reading to file descriptor 3 .
+ * Writing to file descriptor <FD#> .
+ * Reading to file descriptor <FD#> .
  * Message from FD[] : "This is a message!" .
  * -----------------------------------
  * 

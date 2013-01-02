@@ -9,20 +9,20 @@
  * Introduction to unnamed pipe between 2 process which aren't sharing the same codebase. We will pass the file descriptor from
  * the parent to the child process as argument and then establish communication.
  *
- * ParentProc:
+ * ParentProc (writing):
  *                          open                               close                                             
  *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
- * ChildProc:
+ * ChildProc (reading):
  *                          close                              open                                             
  *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
  * Output :
  * -----------------------------------
  * Parent Process ID : <PID-Parent> .
- * Parent is sending message to child process using file descriptor <fd[1]> .
+ * Parent is sending message to child process using file descriptor <FD#> .
  * Child Process ID : <PID-Child> .
- * Child process is reading from file descriptor <fd[0]> .
+ * Child process is reading from file descriptor <FD#> .
  * Child process received message : "This is a message!" .
  * Child process terminated, parent may now terminate .
  * -----------------------------------
@@ -70,8 +70,8 @@ int main(int argc, char *arg[])
             char fileDesc0[10];
             char fileDesc1[10];
 
-            sprintf(fileDesc0, "%i", fd[0]); // We can only pass char* args, conversion from int to
-            sprintf(fileDesc1, "%i", fd[1]); // We can only pass char* args, conversion from int to
+            sprintf(fileDesc0, "%i", fd[0]); // We can only pass char* args, conversion from int to char*
+            sprintf(fileDesc1, "%i", fd[1]); // We can only pass char* args, conversion from int to char*
 
             char *args[4] = {NULL};
             args[0] = "childProc/reader";
@@ -97,7 +97,7 @@ int main(int argc, char *arg[])
             close(fd[1]); // Closing the writing file descriptor  
         }
     }
-    else if(childPID <0)
+    else if(childPID < 0)
     {
         printf("Fork failed with error code : %i .\n", errno);
         return 1;

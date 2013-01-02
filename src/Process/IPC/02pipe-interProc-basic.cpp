@@ -9,11 +9,11 @@
  * Introduction to unnamed pipe between 2 process. The parent process will write in the pipe and the child
  * will read from the pipe. Each process has to close the file descriptor that it won't use as follow:
  *
- * ParentProc:
+ * ParentProc (writing):
  *                          open                               close                                             
  *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
- * ChildProc:
+ * ChildProc (reading):
  *                          close                              open                                             
  *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
@@ -80,7 +80,7 @@ int main(int argc, char *arg[])
             write(fd[1], message, strlen(message)+1); // the "+1" is to insert a NULL caracter otherwise this is not a CSTRING
         }
     }
-    else if(childPID <0)
+    else if(childPID < 0)
     {
         printf("Fork failed with error code : %i .\n", errno);
         return 1;
