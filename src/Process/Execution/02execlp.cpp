@@ -47,11 +47,10 @@ int main(int argc, char *arg[])
             printf("Child Process ID : %i .\n", getpid());
             printf("----------------- .\n\n"); // Output formatting
 
-            char *args[3] = {NULL};
+            char *args[2] = {NULL};
 
             args[0] = "ls"; // <from documentation> : By convention, the first of these strings should contain the filename associated with the file being executed.
             args[1] = "-l"; // Argument for ls
-            // args[2] = NULL; Not been used to avoid compiler warning. See why : http://stackoverflow.com/questions/14115072/why-am-i-getting-a-missing-sentinel-warning
 
             int execution = execlp("ls", args[0], args[1], NULL); // int execlp(const char *file, const char *arg, const char *arg, ... , NULL);
 
