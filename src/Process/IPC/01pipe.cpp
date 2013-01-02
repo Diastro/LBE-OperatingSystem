@@ -35,12 +35,12 @@
 int main(int argc, char *arg[])
 {
     int fd[2];  // Array holding the 2 file descriptor used to access the pipe
-    char buffer[100]; // Buffer that will hold the message read from the pipre
+    char buffer[100]; // Buffer that will hold the message read from the pipe
     const char *message = "This is a message!";
 
     int msgPipe = pipe(fd); // Creation of the pipe
 
-    if ( msgPipe < 0) // Return value -1 : error
+    if (msgPipe < 0) // Return value -1 : error
     {
         printf("Creation of the pipe failed with error : %i .\n", errno);
         return 1;

@@ -10,11 +10,11 @@
  * the parent to the child process as argument and then establish communication.
  *
  * ParentProc (writing):
- *                          open                               close                                             
+ *                          open                                 close                                             
  *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
  * ChildProc (reading):
- *                          close                              open                                             
+ *                          close                                open                                             
  *              write() --> fd[1] -- |======= PIPE#1 =======| -- fd[0] --> read() 
  *
  * Output :
@@ -45,18 +45,15 @@
 
 int main(int argc, char *arg[])
 {
-    // ------------------------------
-    // Used for IPC setup
     int fd[2];  // Array holding the 2 file descriptor used to access the pipe
     const char *message = "This is a message!";
     int msgPipe = pipe(fd); // Creation of the pipe ( !! IMPORTANT : pipe() needs to be called before fork() !! )
     
-    if ( msgPipe < 0) // Return value -1 : error
+    if (msgPipe < 0) // Return value -1 : error
     {
         printf("Creation of the pipe failed with error : %i .\n", errno);
         return 1;
     } 
-    // -------------------------------
 
     pid_t childPID;
     childPID = fork(); 
