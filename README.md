@@ -18,8 +18,8 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
     
 ##Content
 1. Process
-    1.Basics
-    2.IPC
+- Basics
+- IPC
 2. Threads
 
     
