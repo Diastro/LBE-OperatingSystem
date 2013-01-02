@@ -52,7 +52,7 @@ int main(int argc, char *arg[])
     int maxCount = atoi(arg[1]); // Converts the string argument into an integer
 
     while(count <= maxCount){ // ChildProc is doing work
-        printf("ChildProc timer countdown: %i second(s).\n", count);
+        printf("Timer count: %i second(s).\n", count);
         sleep(1);
         count++;
     }
