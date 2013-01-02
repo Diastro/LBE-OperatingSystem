@@ -8,6 +8,7 @@
  * Description : 
  * The exec() call family replaces the child process (which is identical to the parents process when forked)
  * by a new one.
+ * In this example, we will make our childProcess run the ls command using the execve() command.
  * execve() requires you to specify the file path and environment variable (PATH)
  *
  * Output :
@@ -46,9 +47,8 @@ int main(int argc, char *arg[])
             printf("Child Process ID : %i .\n", getpid());
             printf("----------------- \n\n"); // Output formatting
 
-            char *args[3] = {NULL};
             char *env[] = {NULL};
-
+            char *args[3] = {NULL};
             args[0] = "ls"; // <from documentation> : By convention, the first of these strings should contain the filename associated with the file being executed.
             args[1] = "-l"; // Argument for ls
             args[2] = NULL; // Argument for ls; This line is optional since the array was initialised to NULL
@@ -58,6 +58,7 @@ int main(int argc, char *arg[])
             if( execution < 0) // If the execution is a sucess, the exec() call won't return; If error, it will return -1
             {
                 printf("Execution failed with error : %i .\n", errno);
+                return 1;
             }
         }
         else // Code executed in the parent process
@@ -65,7 +66,7 @@ int main(int argc, char *arg[])
             printf("Parent Process ID : %i .\n", getpid());
         }
     }
-    else if(childPID <0)
+    else if(childPID < 0)
     {
         printf("Fork failed with error code : %i .\n", errno);
         return 1;

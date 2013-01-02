@@ -8,14 +8,15 @@
  * Description : 
  * The exec() call family replaces the child process (which is identical to the parents process when forked)
  * by a new one.
- * The following is an example on how to use exec() with your own executable files
+ * The following is an example on how to use exec() with your own executable files. For this example we will
+ * launch the counter (chilProc/counter) from this parent process.
  *
  * Execution :  
  * To execute the ouput file in a console use :
  *     ./executable <arg-1> <arg-2>
  * 
  *     - Where <arg-1> is the name of the object you want to counting.
- *     - Where <arg-2> is last number to count to. * 
+ *     - Where <arg-2> is last number to count to. 
  *     ex : ./executable cars 3
  *
  * Output :
@@ -43,7 +44,7 @@
 
 int main(int argc, char *arg[])
 {
-    if(argc < 3) // Check to make sure the user put argument before executing the script
+    if(argc < 3) // Check to make sure the user put argument before executing the code
     {
         printf("Missing argument, try : ./<name-of-file> car 3 \n");
         printf("Exiting .\n");
@@ -53,7 +54,7 @@ int main(int argc, char *arg[])
     pid_t childPID;
     childPID = fork(); 
 
-    char *objectName = arg[1];// Optionnal, simply makes the code easier to follow
+    char *objectName = arg[1]; // Optionnal, simply makes the code easier to follow
     char *count = arg[2]; // Optionnal, simply makes the code easier to follow
 
     if(childPID >= 0)
@@ -64,7 +65,6 @@ int main(int argc, char *arg[])
             printf("----------------- \n\n"); // Output formatting
 
             char *args[4] = {NULL};
-
             args[0] = "childProc/counter";
             args[1] = objectName;
             args[2] = count;
@@ -75,6 +75,7 @@ int main(int argc, char *arg[])
             if( execution < 0)
             {
                 printf("Execution failed with error : %i .\n", errno);
+                return 1;
             }
         }
         else // Code executed in the parent process
@@ -82,7 +83,7 @@ int main(int argc, char *arg[])
             printf("Parent Process ID : %i .\n", getpid());
         }
     }
-    else if(childPID <0)
+    else if(childPID < 0)
     {
         printf("Fork failed with error code : %i .\n", errno);
         return 1;

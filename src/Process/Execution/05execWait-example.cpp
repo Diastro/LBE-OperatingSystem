@@ -8,7 +8,8 @@
  * Description : 
  * The exec() call family replaces the child process (which is identical to the parents process when forked)
  * by a new one.
- * The following is an example on how to use exec() with your own executable files and wait for the child process to terminate
+ * The following is an example on how to use exec() with your own executable files and wait for the child
+ * process to terminate.For this example we will launch the timer (chilProc/time) from this parent process.
  *
  * Execution :  
  * To execute the ouput file in a console use :
@@ -63,7 +64,6 @@ int main(int argc, char *arg[])
             printf("-----------------\n\n"); // Output formatting
 
             char *args[3] = {NULL};
-
             args[0] = "childProc/timer";
             args[1] = count;
             args[2] = NULL;
@@ -73,6 +73,7 @@ int main(int argc, char *arg[])
             if( execution < 0)
             {
                 printf("Execution failed with error : %i .\n", errno);
+                return 1;
             }
         }
         else // Code executed in the parent process
@@ -80,7 +81,7 @@ int main(int argc, char *arg[])
             printf("Parent Process ID : %i .\n", getpid());
         }
     }
-    else if(childPID <0)
+    else if(childPID < 0)
     {
         printf("Fork failed with error code : %i .\n", errno);
         return 1;

@@ -8,6 +8,7 @@
  * Description : 
  * The exec() call family replaces the child process (which is identical to the parents process when forked)
  * by a new one.
+ * In this example, we will make our childProcess run the ls command using the execvp() command.
  * execvp() is the same as execlp() but allows you to pass your argument as a pointer to an array of char (const char *arg[])
  * instead of a simple char pointer (const char *arg)
  *
@@ -58,6 +59,7 @@ int main(int argc, char *arg[])
             if( execution < 0) // If the execution is a sucess, the exec() call won't return; If error, it will return -1
             {
                 printf("Execution failed with error : %i .\n", errno);
+                return 1;
             }
         }
         else // Code executed in the parent process
@@ -65,7 +67,7 @@ int main(int argc, char *arg[])
             printf("Parent Process ID : %i .\n", getpid());
         }
     }
-    else if(childPID <0)
+    else if(childPID < 0)
     {
         printf("Fork failed with error code : %i .\n", errno);
         return 1;
