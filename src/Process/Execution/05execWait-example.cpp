@@ -62,7 +62,7 @@ int main(int argc, char *arg[])
             printf("Child Process ID : %i .\n", getpid());
             printf("-----------------\n\n"); // Output formatting
 
-            char *args[4] = {NULL};
+            char *args[3] = {NULL};
 
             args[0] = "childProc/timer";
             args[1] = count;
