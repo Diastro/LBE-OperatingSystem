@@ -1,13 +1,13 @@
 /**
- * File             : 02pipe-interProc-elaborated.cpp
+ * File             : 02pipe-interProc-basic.cpp
  * Date of creation : January 2 2013
  * Author           : David Albertson
  * Twitter          : @DavidAlbertson
  * Website          : www.dalbertson.com
  *
  * Description : 
- * Introduction to unnamed pipe between 2 process which aren't sharing the same codebase. We will pass the file descriptor from
- * the parent to the child process as argument and then establish communication.
+ * Introduction to unnamed pipe between 2 process. The parent process will write in the pipe and the child
+ * will read from the pipe. Each process has to close the file descriptor that it won't use as follow:
  *
  * ParentProc (writing):
  *                          open                                 close                                             
@@ -20,10 +20,9 @@
  * Output :
  * -----------------------------------
  * Parent Process ID : <PID-Parent> .
- * Parent is sending message to child process using file descriptor <FD#> .
+ * Parent is sending message to child process .
  * Child Process ID : <PID-Child> .
- * Child process is reading from file descriptor <FD#> .
- * Child process received message : "This is a message!" .
+ * Child Process receiving message from parent : "This is a message!" .
  * Child process terminated, parent may now terminate .
  * -----------------------------------
  * 
@@ -45,16 +44,19 @@
 
 int main(int argc, char *arg[])
 {
+
     int fd[2];  // Array holding the 2 file descriptor used to access the pipe
-    const char *message = "This is a message!";
     int msgPipe = pipe(fd); // Creation of the pipe ( !! IMPORTANT : pipe() needs to be called before fork() !! )
-    
+
     if (msgPipe < 0) // Return value -1 : error
     {
         printf("Creation of the pipe failed with error : %i .\n", errno);
         return 1;
     } 
 
+    const char *message = "This is a message!";
+    char buffer[100]; // Buffer that will hold the message read from the pipe
+    
     pid_t childPID;
     childPID = fork(); 
 
@@ -64,34 +66,19 @@ int main(int argc, char *arg[])
         {
             printf("Child Process ID : %i .\n", getpid());
 
-            char fileDesc0[10];
-            char fileDesc1[10];
+            close(fd[1]); // Close the unused FD (see description at the top)
+            int byteRead = read( fd[0], buffer, sizeof(buffer));
+            printf("Child Process receiving message from parent : \"%s\" .\n", buffer);
 
-            sprintf(fileDesc0, "%i", fd[0]); // We can only pass char* args, conversion from int to char*
-            sprintf(fileDesc1, "%i", fd[1]); // We can only pass char* args, conversion from int to char*
-
-            char *args[4] = {NULL};
-            args[0] = "childProc/reader";
-            args[1] = fileDesc0;
-            args[2] = fileDesc1;
-            args[3] = NULL;
-
-            int execution = execvp("childProc/reader", args);
-            
-            if( execution < 0)
-            {
-                printf("Execution failed with error : %i .\n", errno);
-                return 1;
-            }
+            return 0;
         }
         else // Code executed in the parent process
         {
             printf("Parent Process ID : %i .\n", getpid());
-            printf("Parent is sending message to child process using file descriptor %i .\n", fd[1]);
+            printf("Parent is sending message to child process .\n", getpid());
 
-            close(fd[0]); // Close the unused reading FD (see description at the top)
+            close(fd[0]); // Close the unused FD (see description at the top)
             write(fd[1], message, strlen(message)+1); // the "+1" is to insert a NULL caracter otherwise this is not a CSTRING
-            close(fd[1]); // Closing the writing file descriptor  
         }
     }
     else if(childPID < 0)

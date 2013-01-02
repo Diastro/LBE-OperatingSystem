@@ -46,8 +46,6 @@ int main(int argc, char *arg[])
 {
 
     int fd[2];  // Array holding the 2 file descriptor used to access the pipe
-    char buffer[100]; // Buffer that will hold the message read from the pipe
-    const char *message = "This is a message!";
     int msgPipe = pipe(fd); // Creation of the pipe ( !! IMPORTANT : pipe() needs to be called before fork() !! )
 
     if (msgPipe < 0) // Return value -1 : error
@@ -56,6 +54,9 @@ int main(int argc, char *arg[])
         return 1;
     } 
 
+    const char *message = "This is a message!";
+    char buffer[100]; // Buffer that will hold the message read from the pipe
+    
     pid_t childPID;
     childPID = fork(); 
 
