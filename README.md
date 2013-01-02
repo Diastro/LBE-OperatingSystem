@@ -20,7 +20,7 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 |Process                 |Threads                 |
 |------------------------|------------------------|
-|Basics                  |Basics     |  z           |
+|Basics                  |-Basics -2                 |
 |Execution               |                        |
 |IPC                     |                        |
     
