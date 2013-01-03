@@ -11,6 +11,8 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 1) Compile any .cpp file :
 
     gcc 01fork.cpp -o output
+    
+For the Thread section you need to add the ~~-ptread flag
   
 2) Execute the corresponding output file :
 
