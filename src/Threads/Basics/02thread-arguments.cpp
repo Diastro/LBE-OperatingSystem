@@ -1,22 +1,22 @@
 /**
- * File             : 01thread.cpp
+ * File             : 02thread-arguments.cpp
  * Date of creation : January 2 2013
  * Author           : David Albertson
  * Twitter          : @DavidAlbertson
  * Website          : www.dalbertson.com
  *
  * Description : 
- * Introduction to POSIX threads.
+ * Introduction to POSIX threads. Passing arguments to threads.
  *
  * Execution / Compiling :
  * IMPORTANT : When compiling code using #include <pthread.h>, you need to specify the pthread flag to gcc allowing gcc to link the pthread library
  * 
- *     gcc 01thread.cpp -o output -pthread
+ *     gcc 02thread-arguments.cpp -o output -pthread
  * 
  * Output :
  * -----------------------------------
  * Creating thread with ID : <Thread-ID> .
- * Inside ThreadA() function .
+ * Inside ThreadA() function of threadID : <Thread-ID> .
  * Thread exited...
  * -----------------------------------
  * 
@@ -37,18 +37,18 @@
 
 void *ThreadA(void *args)
 {
-    printf("Inside ThreadA() function .\n");
+    printf("Inside ThreadA() function of threadID : %i .\n", args);
     pthread_exit(NULL);
 }
 
 int main(int argc, char *arg[])
 {
-    pthread_t threadId; // Structure holding the thread ID
+    pthread_t threadId; // Set initial ID for the thread
 
     printf("Creating thread with ID : %i .\n", threadId);
-    int pthreadReturn = pthread_create(&threadId, NULL, ThreadA, NULL); // Thread creation
+    int pthreadReturn = pthread_create(&threadId, NULL, ThreadA, (void *) threadId); // Passes the threadId pointer as argument for the Thread
 
-    if (pthreadReturn != 0) // If return value isn't 0  pthread_create will return the error number
+    if (pthreadReturn != 0) 
     {
         printf("Error creation failed with error: %i .\n", pthreadReturn);
         return 1;
