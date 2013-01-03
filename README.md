@@ -20,25 +20,25 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 ### Process
 
-*Basics*
+**Basics**
 * Item 1
 * Item 2
 
-*Execution*
+**Execution**
 * Item 1
 * Item 2
 
-*IPC*
+**IPC**
 * Item 1
 * Item 2
 
 ### Threads
 
-*Basics*
+**Basics**
 * Item 1
 * Item 2
 
-*Synchonization*
+**Synchonization**
 * Item 1
 * Item 2
     
