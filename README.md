@@ -24,11 +24,11 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 <h2> Execution
 
-#### IPC
+##### IPC
 
-### Threads
+##### Threads
 
-#### Basics
+# Basics
 
 #### Synchonization
     
