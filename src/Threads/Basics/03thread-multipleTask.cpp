@@ -36,7 +36,7 @@
 #include <stdio.h>      // for : perror, printf
 #include <errno.h>      // for : errno
 #include <string.h>     // for : strlen
-#include <pthread.h>    // for pthread_create, pthread_join, pthread_exit
+#include <pthread.h>    // for : pthread_create, pthread_join, pthread_exit
 
 #define THREAD_COUNT 3
 
