@@ -20,27 +20,27 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 ### Process
 
-**Basics**
-* Item 1
-* Item 2
+*B asics
+    * Item 1
+    * Item 2
 
-**Execution**
-* Item 1
-* Item 2
+* Execution
+    * Item 1
+    * Item 2
 
-**IPC**
-* Item 1
-* Item 2
+* IPC
+    * Item 1
+    * Item 2
 
 ### Threads
 
-**Basics**
-* Item 1
-* Item 2
+* Basics
+    * Item 1
+    * Item 2
 
-**Synchonization**
-* Item 1
-* Item 2
+* Synchonization
+    * Item 1
+    * Item 2
     
 ##References
 - [Die.net - Linux Doc](http://www.die.net)
