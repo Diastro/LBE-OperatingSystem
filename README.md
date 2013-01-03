@@ -27,3 +27,4 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 ##References
 - [Die.net - Linux Doc](http://www.die.net)
 - [A short introduction to operating systems, by Mark Burgess](http://www.iu.hio.no/~mark/os/os.html)
+- [Google's CPP coding guideline](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml)
