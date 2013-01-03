@@ -20,9 +20,9 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 ### Process
 
-#### Basics
+<h1> Basics
 
-#### Execution
+<h2> Execution
 
 #### IPC
 
