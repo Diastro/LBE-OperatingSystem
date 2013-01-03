@@ -20,14 +20,12 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 ### Process
 
-*B asics
+* Basics
     * Item 1
     * Item 2
-
 * Execution
     * Item 1
     * Item 2
-
 * IPC
     * Item 1
     * Item 2
@@ -37,7 +35,6 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 * Basics
     * Item 1
     * Item 2
-
 * Synchonization
     * Item 1
     * Item 2
