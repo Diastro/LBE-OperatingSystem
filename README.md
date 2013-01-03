@@ -22,10 +22,10 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 
 * Basics
     * **01fork.cpp** - How to fork
-    * *02waitpid-basic.cpp* - Wait for a given process to terminate
-    * 02waitpif-elaborated.cpp - Wait for a given process to terminate and retrive signal or exit value
-    * 03waitpid-nonBlocking.cpp - Wait for a given process to terminate without blocking the parent process
-    * 04wait.cpp - Wait for all process to terminate
+    * **02waitpid-basic.cpp** - Wait for a given process to terminate
+    * **02waitpif-elaborated.cpp** - Wait for a given process to terminate and retrive signal or exit value
+    * **03waitpid-nonBlocking.cpp** - Wait for a given process to terminate without blocking the parent process
+    * **04wait.cpp** - Wait for all process to terminate
 * Execution
     * Item 1
     * Item 2
