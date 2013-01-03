@@ -18,9 +18,9 @@ For the **Thread** section you need to add the `-ptread` flag
   
 2) Execute the corresponding output file :
 
-    ~~~ sh
-    $ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-    ~~~
+~~~ sh
+$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+~~~
     
 ##Content
 
