@@ -8,6 +8,8 @@ A few things to point out :
 - Think there would be more interesting things to add in there, feel free to add them OR request that I do a quick example.
 - Without sharing, we won't go anywhere! Contribute! Go Open! Drink tea.
 
+*David Albertson*
+
 ##Execution
 To run any code example in a Linux environment (I use ubuntu) do the following :
 
