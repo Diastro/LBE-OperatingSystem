@@ -1,9 +1,12 @@
 LBE-OperatingSystem
 ===================
 
-Learn by example : Operating system
+LBE-OS is a repo full of code snippets to help you complete you OS labs. 
 
-WORK IN PROGRESS.
+A few things to point out :
+- Though I did my best, I might have done some mistakes along the way, [let me know](https://github.com/Diastro/LBE-OperatingSystem/issues) AND/OR contribute to fix them!
+- Think there would be more interesting things to add in there, feel free to add them OR request that I do a quick example.
+- Without sharing, we won't go anywhere! Contribute! Go Open! Drink tea.
 
 ##Execution
 To run any code example in a Linux environment (I use ubuntu) do the following :
@@ -52,7 +55,11 @@ For the **Thread** section you need to add the `-ptread` flag
     * **03thread-multipleTask.cpp** - Clean way of launching multiple threads
 * Synchonization
     * **01mutex.cpp** - Basic synchonization using mutex (binary semaphores)
+    * **02semaphore-prodCons.cpp** - Synchronization using semaphore. An example of the producer - consumer problem
     
+##Changelogs
+TOD.
+
 ##References
 - [Die.net - Linux Doc](http://www.die.net)
 - [A short introduction to operating systems, by Mark Burgess](http://www.iu.hio.no/~mark/os/os.html)
