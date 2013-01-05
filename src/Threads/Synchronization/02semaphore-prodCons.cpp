@@ -124,10 +124,12 @@ void IncIndex(int *index){
  */
 int GetIndex()
 {
-    sem_wait(&IndexMutex);
+    sem_wait(&IndexMutex); // Entering critical section
+
     int index = readingIndex; // Temporary saving to return later
     IncIndex(&readingIndex);
-    sem_post(&IndexMutex);
+
+    sem_post(&IndexMutex); // Exiting critical section
 
     return index;
 }
@@ -138,10 +140,12 @@ void *ThreadRoutine(void *args)
 
     while(true){
         sem_wait(&queueFullSpots); // Waits to get the lock and then goes in the processing-buffer to get a sleeping value
-        int value = queue[GetIndex()];
+
+        int value = queue[GetIndex()];        
         if(value < 0) break; // If main() sends us a negative value it means that there is nothing else to process, thread may terminate
         printf("Thread #%i sleeping for %i from processing-buffer .\n", threadNum, value);
         sleep(value); // Does work aka sleeps
+
         sem_post(&queueEmptySpots); // main() may now add a new value since we processed one
     }
 
@@ -164,7 +168,6 @@ int main(int argc, char *arg[])
     for(int i=0; i<THREAD_COUNT; i++)
     {
         int pthreadReturn = pthread_create(&threadId[i], NULL, ThreadRoutine, (void *) i); 
-
         if (pthreadReturn != 0)
         {
             printf("Error creation failed with error: %i .\n", pthreadReturn);
@@ -176,26 +179,28 @@ int main(int argc, char *arg[])
     int processedItems = TASKLIST_SIZE-1;
     while(processedItems > 0)
     {
-        sem_wait(&queueEmptySpots); 
+        sem_wait(&queueEmptySpots); // Entering critical section 
+
         printf("Main adding value %i to processing-buffer .\n", taskList[processedItems]);
         queue[writingIndex] = taskList[processedItems];
-
         IncIndex(&writingIndex);
-
         processedItems--;
-        sem_post(&queueFullSpots); 
+
+        sem_post(&queueFullSpots); // Exiting critical section
     }
 
     // We send a negative number to all threads to inform them that everything was processed
     int threadToKill = THREAD_COUNT;
     while(threadToKill > 0)
     {
-        sem_wait(&queueEmptySpots); 
+        sem_wait(&queueEmptySpots); // Entering critical section
+
         printf("Main informing threads to terminate .\n");
         queue[writingIndex] = -1; // Sending value to the thread by adding it to the processing-queue
         IncIndex(&writingIndex); // Increment the writing index
         threadToKill--;
-        sem_post(&queueFullSpots); 
+
+        sem_post(&queueFullSpots); // Exiting critical section
     }
 
     printf("Waiting for threads to be done... \n");
