@@ -107,8 +107,10 @@ int RandVal(int high, int low)
  * Increments the value of index by 1
  * @param index [pointer of the value to increment]
  */
-void IncIndex(int *index){
-    if(*index < SPOTS){
+void IncIndex(int *index)
+{
+    if(*index < SPOTS)
+    {
         *index = *index + 1; // :)
     }
     else{
@@ -138,7 +140,8 @@ void *ThreadRoutine(void *args)
 {
     int threadNum = (int) args;
 
-    while(true){
+    while(true)
+    {
         sem_wait(&queueFullSpots); // Waits to get the lock and then goes in the processing-buffer to get a sleeping value
 
         int value = queue[GetIndex()];        
