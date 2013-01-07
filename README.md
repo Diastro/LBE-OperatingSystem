@@ -1,7 +1,7 @@
 LBE-OperatingSystem
 ===================
 
-LBE-OS is a repo full of code snippets to help you complete you OS labs. 
+LBE-OS is a repo full of code snippets to help you complete your OS labs. 
 
 A few things to point out :
 - Though I did my best, I might have done some mistakes along the way, [let me know](https://github.com/Diastro/LBE-OperatingSystem/issues) AND/OR contribute to fix them!
