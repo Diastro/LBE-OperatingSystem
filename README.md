@@ -62,6 +62,8 @@ For the **Thread** section you need to add the `-ptread` flag
 ##Changelogs
 TOD.
 
+FIFO coming soon.
+
 ##References
 - [Die.net - Linux Doc](http://www.die.net)
 - [A short introduction to operating systems, by Mark Burgess](http://www.iu.hio.no/~mark/os/os.html)
