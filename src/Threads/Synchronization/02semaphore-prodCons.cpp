@@ -9,7 +9,7 @@
  * Introduction to POSIX threads.
  * Dealing with synchronization (mutual exclusion). 
  * Note : Semaphore is like a mutex but it can take a value higher than 1. This example will illustrate how
- * this can be usefull using the producer / consumer situation.
+ * this can be useful using the producer / consumer situation.
  *
  * Processing-buffer : 
  * The main section of our code will fill as many available slots of the processing-buffer (queue) with value and when
