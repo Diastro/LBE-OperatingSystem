@@ -19,7 +19,7 @@ To run any code example in a Linux environment (I use ubuntu) do the following :
 gcc 01fork.cpp -o output
 ~~~
     
-For the **Thread** section you need to add the `-ptread` flag
+For the **Thread** section you need to add the `-pthread` flag
   
 2) Execute the corresponding output file :
 
