@@ -10,7 +10,7 @@ A few things to point out :
 
 *David Albertson*
 
-##Execution
+## Execution
 To run any code example in a Linux environment (I use ubuntu) do the following :
 
 1) Compile any .cpp file :
@@ -27,7 +27,7 @@ For the **Thread** section you need to add the `-pthread` flag
 ./output
 ~~~
     
-##Content
+## Content
 
 ### Process
 
@@ -59,12 +59,12 @@ For the **Thread** section you need to add the `-pthread` flag
     * **01mutex.cpp** - Basic synchonization using mutex (binary semaphores)
     * **02semaphore-prodCons.cpp** - Synchronization using semaphore. An example of the producer - consumer problem
     
-##Changelogs
+## Changelogs
 TOD.
 
 FIFO coming soon.
 
-##References
+## References
 - [Die.net - Linux Doc](http://www.die.net)
 - [A short introduction to operating systems, by Mark Burgess](http://www.iu.hio.no/~mark/os/os.html)
 - [Google's CPP coding guideline](http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml)
